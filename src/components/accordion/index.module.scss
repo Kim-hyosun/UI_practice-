@@ -1,0 +1,125 @@
+.Accordions {
+  .container {
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    overflow: hidden;
+  }
+  .tab {
+    //타이틀
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+
+    &::before {
+      content: '+';
+      margin: 0 8px 0 -5px;
+    }
+  }
+  .description {
+    //상세내용
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #eff;
+  }
+
+  //react1
+  .item {
+    &.current {
+      .tab {
+        background-color: #ace;
+        &::before {
+          content: '-';
+        }
+      }
+    }
+  }
+
+  // react2 + css로 여닫기
+  .item2 {
+    .description {
+      //display: none; <-seo에 좋지 않아서 아래css로 대체
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+    &.current {
+      .description {
+        //display: block;<-seo에 좋지 않아서 아래css로 대체
+        position: static;
+        width: auto;
+        height: auto;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  //react3 +  transition추가하기
+  .item3 {
+    .description {
+      padding: 0 15px;
+      border-bottom-width: 0;
+      max-height: 0;
+      transition: ease 0.3s;
+      //opacity: 0;
+      overflow: hidden;
+    }
+    &.current {
+      .description {
+        //opacity: 1;
+        padding: 15px;
+        border-bottom-width: 1px;
+        max-height: 100vh; //임의 지정한 값(화면전체를 넘지는 않겠찌...)
+      }
+    }
+  }
+
+  //html
+  .item5 {
+    overflow: hidden;
+    .input {
+      display: none;
+    }
+    .tab {
+      display: block;
+    }
+    .description {
+      padding: 0 15px;
+      border-bottom-width: 0;
+      max-height: 0;
+      transition: ease 0.3s;
+      overflow: hidden;
+    }
+    .input:checked {
+      + .tab {
+        //+는 인접형제 연산자 : 바로 뒤에있는 형제 요소 하나만 선택
+        //바로 뒤에있는 .tab을 선택
+        background-color: #ace;
+        &::before {
+          content: '-';
+        }
+      }
+      ~ .description {
+        //~는 일반형제 연산자 : 뒤에나오는 모든 형제 요소 선택
+        //input뒤에 오는 모든 .description을 선택
+        padding: 15px;
+        border-bottom-width: 1px;
+        max-height: 50vh;
+      }
+    }
+  }
+
+  //detail
+  .item7 {
+    summary {
+      padding: 6px 4px;
+    }
+  }
+}
