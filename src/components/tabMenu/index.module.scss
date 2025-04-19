@@ -1,0 +1,94 @@
+.TabMenus {
+  .container {
+    border: 1px solid #ddd;
+  }
+  .tabList {
+    //타이틀
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid #ddd;
+  }
+  .tab {
+    flex: 0 0 25%;
+    box-sizing: border-box;
+    padding: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    & + .tab {
+      border-left: 1px solid #ddd;
+    }
+    &.current {
+      background-color: #555;
+      color: #fff;
+    }
+  }
+  .description {
+    padding: 15px;
+  }
+
+  //react2.tsx
+  .tabMenu2 .description {
+    display: none;
+    &.current {
+      display: block;
+    }
+  }
+  //react3.tsx
+  .tabMenu3 {
+    position: relative;
+    .item {
+      list-style: none;
+
+      margin: 0;
+
+      &:nth-child(1) .tab {
+        left: 0;
+      }
+      &:nth-child(2) .tab {
+        left: 25%;
+        border-left: 1px solid #ddd;
+      }
+      &:nth-child(3) .tab {
+        left: 50%;
+        border-left: 1px solid #ddd;
+      }
+      &:nth-child(4) .tab {
+        left: 75%;
+        border-left: 1px solid #ddd;
+      }
+    }
+
+    .tab {
+      width: 25%;
+      box-sizing: border-box;
+      padding: 15px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .description {
+      display: none;
+      padding-top: 65px;
+    }
+
+    .item.current {
+      .tab {
+        background-color: #555;
+        color: #fff;
+      }
+      .description {
+        display: block;
+      }
+    }
+  }
+}
