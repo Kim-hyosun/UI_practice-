@@ -24,7 +24,7 @@ const ReactTabManu2 = () => {
   const currentData = data.find((item) => item.id === currentId);
 
   const toggleItem = (id: string) => {
-    setCurrentID((prev) => (prev === id ? prev : id));
+    setCurrentID(id);
   };
   return (
     <>

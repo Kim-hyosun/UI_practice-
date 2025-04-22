@@ -2,6 +2,7 @@ import cx from './cx';
 import ReactTabManu1 from './react1';
 import ReactTabManu2 from './react2';
 import ReactTabManu3 from './react3';
+import VanillaTabManu from './vanilla';
 
 const TabMenus = () => {
   // cx('TabMenus')는 해당 태그에 class="TabMenus"를 한것
@@ -11,6 +12,7 @@ const TabMenus = () => {
       <ReactTabManu1 />
       <ReactTabManu2 />
       <ReactTabManu3 />
+      <VanillaTabManu />
     </div>
   );
 };
