@@ -76,3 +76,34 @@ if (descRef.current) {
 </ul>
 
 ```
+
+## 3. 툴팁
+
+- 툴팁박스가 하나만 열리도록 처리하기 위해 useContext사용해보기
+
+#### useContext 사용해보기
+
+- 1. createContext로 context객체 생성하기
+
+```
+import { createContext } from 'react';
+const MyContext = createContext(defaultValue);
+    //defaultValue는 Provider를 사용하지 않을때의 기본값
+    //MyContext는 Provider와 Consumer를 포함하는 객체
+```
+
+- 2. Provider로 값을 공급하기
+
+```
+<MyContext.Provider value={anyValue}> //value는 하위 트리에게 공유할 상태 데이터
+  <AnyComponent />
+</MyContext.Provider>
+```
+
+- 3. useContext의 값을 꺼내쓸때는 Provider에서 가져오면됨
+
+```
+import {useContext} from 'react';
+const 값가져와 = useContext(MyContext)
+
+```
