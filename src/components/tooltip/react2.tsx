@@ -36,7 +36,7 @@ const Tooltip = ({
       </button>
       {isOpen && (
         <div className={cx('tooltip')} onClick={(e) => e.stopPropagation()}>
-          {des}{' '}
+          {des}
         </div>
       )}
     </div>

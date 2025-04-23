@@ -11,7 +11,7 @@ const Tooltip = ({
   title: string;
   des: string;
 }) => {
-  const [isOpen, toggle] = useState(true);
+  const [isOpen, toggle] = useState(false);
   const clickHandler = (e: SyntheticEvent) => {
     e.stopPropagation();
     toggle((prev) => !prev);
@@ -35,7 +35,7 @@ const Tooltip = ({
       </button>
       {isOpen && (
         <div className={cx('tooltip')} onClick={(e) => e.stopPropagation()}>
-          {des}{' '}
+          {des}
         </div>
       )}
     </div>
