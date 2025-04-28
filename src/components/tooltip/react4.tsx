@@ -43,7 +43,9 @@ const Tooltip = ({
 const ReactTooltip4 = () => {
   return (
     <ViewportContextProvider>
-      <h3>#4</h3>
+      <h3>
+        #4 React <sub>화면안에 있도록 처리</sub>
+      </h3>
       {data.map((i) => (
         <Tooltip {...i} key={i.id} />
       ))}
